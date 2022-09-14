@@ -1,0 +1,10 @@
+Truck
+-----
+
+``Truck`` objects have identical interfaces as ``Car`` objects. Therefore, you
+should refer to the ``Car`` class to understand the specification of the
+``Truck`` class.
+
+.. py:class:: Truck(x, y, w, h, dx, dy, s)
+
+    See the ``Car`` class documentation for descriptions of the parameters.

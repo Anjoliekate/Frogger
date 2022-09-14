@@ -1,0 +1,99 @@
+Locatable
+---------
+
+All objects should be located in the game window. Therefore, each class inherits
+(whether directly or indirectly) from the ``Locatable`` class which provides
+basic locating primitives.
+
+You shouldn't directly create an instance of ``Locatable`` but consider the
+descriptions below of the data attributes/members and methods that are
+accessible on any object that inherits from ``Locatable``.
+
+.. py:class:: Locatable
+
+   .. py:attribute:: x
+
+       The x value of the position of the object.
+
+       :type x: int or float
+
+   .. py:attribute:: y
+
+       The y value of the position of the object.
+
+       :type y: int or float
+
+   .. py:attribute:: width
+
+       The width of the object.
+
+       :type width: int or float
+
+   .. py:attribute:: height
+
+       The height of the object.
+
+       :type height: int or float
+
+   .. py:method:: getX()
+
+   .. py:method:: getY()
+
+   .. py:method:: getWidth()
+
+   .. py:method:: getHeight()
+
+   .. py:method:: setX(x)
+
+       :param x: The x value to set for the position of the object.
+       :type x: int or float
+
+   .. py:method:: setY(y)
+
+       :param y: The y value to set for the position of the object.
+       :type y: int or float
+
+   .. py:method:: setWidth(width)
+
+       :param width: The value to set for the width of the object.
+       :type width: int or float
+
+   .. py:method:: setHeight(height)
+
+       :param height: The value to set for the height of the object.
+       :type height: int or float
+
+   .. py:method:: containsPoint(x,y)
+
+       Determines if the given point is contained within the space of the
+       current object (self), according to the object's position, width, and
+       height.
+
+       :param x: The x value of the point to test.
+       :type x: int or float
+       :param y: The y value of the point to test.
+       :type y: int or float
+       :return: Whether or not the point is in the object.
+       :rtype: bool
+
+   .. py:method:: containsLocatable(other)
+
+       Determines if the given object is contained within the space of the
+       current object (self), according to both objects' position, width, and
+       height.
+
+       :param other: The other object to be compared with.
+       :type other: ``Locatable``
+       :return: Whether or not the other object is in the current object.
+       :rtype: bool
+
+   .. py:method:: overlapWithLocatable(other)
+
+       Determines if the space of the given object overlaps with the space of
+       the current object (self), according to both objects' position, width,
+       and height.
+
+       :param other: The other object to be compared with.
+       :type other: ``Locatable``
+       :return: Whether or not the other object overlaps the current object.
+       :rtype: bool

@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Frog &#8212; Frogger  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Grass" href="grass.html" />
+    <link rel="prev" title="Dozer" href="dozer.html" />
+
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+
+  <section id="frog">
+<h1>Frog<a class="headerlink" href="#frog" title="Permalink to this headline">¶</a></h1>
+<p>A <code class="docutils literal notranslate"><span class="pre">Frog</span></code> object is controlled by the player to move throughout the game.
+Through inheritance, Frog objects include attributes from the <code class="docutils literal notranslate"><span class="pre">Locatable</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Movable</span></code>, and <code class="docutils literal notranslate"><span class="pre">PlayerControllable</span></code> classes. You should reference the
+documentation pages of these classes when implementing the frog’s behavior in
+your game.</p>
+<dl class="py class">
+<dt id="Frog">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Frog</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Frog" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="Frog.x">
+<code class="sig-name descname"><span class="pre">x</span></code><a class="headerlink" href="#Frog.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>The x value of the position of the frog. This should be used as its left
+edge (as defined in pygame).</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="Frog.y">
+<code class="sig-name descname"><span class="pre">y</span></code><a class="headerlink" href="#Frog.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>The y value of the position of the frog. This should be used as its top
+edge (as defined in pygame).</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="Frog.w">
+<code class="sig-name descname"><span class="pre">w</span></code><a class="headerlink" href="#Frog.w" title="Permalink to this definition">¶</a></dt>
+<dd><p>The width of the frog.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="Frog.h">
+<code class="sig-name descname"><span class="pre">h</span></code><a class="headerlink" href="#Frog.h" title="Permalink to this definition">¶</a></dt>
+<dd><p>The height of the frog.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="Frog.dx">
+<code class="sig-name descname"><span class="pre">dx</span></code><a class="headerlink" href="#Frog.dx" title="Permalink to this definition">¶</a></dt>
+<dd><p>The desired x value of the frog. The point in the x dimension toward
+which the frog will automatically move.</p>
+<p>Set this to the frog’s x value since the frog should not move automatically.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="Frog.dy">
+<code class="sig-name descname"><span class="pre">dy</span></code><a class="headerlink" href="#Frog.dy" title="Permalink to this definition">¶</a></dt>
+<dd><p>The desired y value of the frog. The point in the y dimension toward
+which the frog will automatically move.</p>
+<p>Set this to the frog’s y value since the frog should not move automatically.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="Frog.s">
+<code class="sig-name descname"><span class="pre">s</span></code><a class="headerlink" href="#Frog.s" title="Permalink to this definition">¶</a></dt>
+<dd><p>The speed of the frog.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="Frog.hg">
+<code class="sig-name descname"><span class="pre">hg</span></code><a class="headerlink" href="#Frog.hg" title="Permalink to this definition">¶</a></dt>
+<dd><p>The horizontal gap of the frog, representing how far the frog will jump
+in the horizontal plane when pressing the left or right arrow keys.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="Frog.vg">
+<code class="sig-name descname"><span class="pre">vg</span></code><a class="headerlink" href="#Frog.vg" title="Permalink to this definition">¶</a></dt>
+<dd><p>The vertical gap of the frog, representing how far the frog will jump
+in the vertical plane when pressing the up or down arrow keys.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Frogger</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="grid.html">Establishing a Grid Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="car.html">Car</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dodgeable.html">Dodgeable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dozer.html">Dozer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Frog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grass.html">Grass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="immovable.html">Immovable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="locatable.html">Locatable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movable.html">Movable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="player_controllable.html">PlayerControllable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="race_car.html">RaceCar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rideable.html">Rideable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="road.html">Road</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stage.html">Stage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="truck.html">Truck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="turtle.html">Turtle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="water.html">Water</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="dozer.html" title="previous chapter">Dozer</a></li>
+      <li>Next: <a href="grass.html" title="next chapter">Grass</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, CS 1410.
+
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+
+      |
+      <a href="_sources/frog.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+
+
+
+  </body>
+</html>

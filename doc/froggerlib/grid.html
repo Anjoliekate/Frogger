@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Establishing a Grid Abstraction &#8212; Frogger  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Car" href="car.html" />
+    <link rel="prev" title="Frogger Documentation" href="index.html" />
+
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+
+  <section id="establishing-a-grid-abstraction">
+<h1>Establishing a Grid Abstraction<a class="headerlink" href="#establishing-a-grid-abstraction" title="Permalink to this headline">¶</a></h1>
+<p>Pygame draws shapes in terms of low-level pixel values, a level of complexity
+that is not ideal for human programmers. For example, we might draw a rectangle
+like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">Rect</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">pygame</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>which would look like this:</p>
+<img alt="_images/grid1.png" class="align-center" src="_images/grid1.png" />
+<p>Instead of thinking about how many hundreds of pixels we need in order to draw
+the rectangle right where we want it, a simpler approach would be to think in
+terms of rows and columns:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">row</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">col</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">cell_size</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">Rect</span><span class="p">(</span><span class="n">col</span><span class="o">*</span><span class="n">cell_size</span><span class="p">,</span> <span class="n">row</span><span class="o">*</span><span class="n">cell_size</span><span class="p">,</span> <span class="n">cell_size</span><span class="p">,</span> <span class="n">cell_size</span><span class="p">)</span>
+<span class="n">pygame</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The above example draws the same rectangle as before (grid lines added for
+reference):</p>
+<img alt="_images/grid2.png" class="align-center" src="_images/grid2.png" />
+<p>While requiring a few more keystrokes, the later approach is much simpler;
+something to the effect of “Draw a rectangle that is one column wide and one
+column tall and position it in row 4 column 3.” (Note that the row and column
+numbers are zero-based.) Compare this to “Draw a rectangle that is 50 pixels
+wide and 50 pixels tall at position (150, 200).”</p>
+<p>While this is a trivial example, consider how the complexity of not using a grid
+abstraction grows when adding functionality such as moving the shapes or
+precisely drawing other neighboring shapes.</p>
+<section id="configuring-the-grid-abstraction">
+<h2>Configuring the Grid Abstraction<a class="headerlink" href="#configuring-the-grid-abstraction" title="Permalink to this headline">¶</a></h2>
+<p>In <code class="docutils literal notranslate"><span class="pre">main.py</span></code>, we define constants for the size of the window in terms of pixels:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">WINDOW_WIDTH</span>  <span class="o">=</span> <span class="mi">700</span>
+<span class="n">WINDOW_HEIGHT</span> <span class="o">=</span> <span class="mi">600</span>
+</pre></div>
+</div>
+<p>This is where we should configure our grid, designing for rows and columns
+rather than raw pixel values. The example below defines a window consisting of
+11 rows and 15 columns where each cell is 50x50 pixels in size:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">NUM_ROWS</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">NUM_COLS</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">CELL_SIZE</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">WINDOW_WIDTH</span>  <span class="o">=</span> <span class="n">NUM_COLS</span> <span class="o">*</span> <span class="n">CELL_SIZE</span>
+<span class="n">WINDOW_HEIGHT</span> <span class="o">=</span> <span class="n">NUM_ROWS</span> <span class="o">*</span> <span class="n">CELL_SIZE</span>
+</pre></div>
+</div>
+<p>You should adapt these values for a window that suits your preferences. You also
+might need to scale the window depending on the resolution and size of your
+computer’s screen. This can be done by adjusting the <code class="docutils literal notranslate"><span class="pre">CELL_SIZE</span></code> variable.</p>
+<p>The last step in setting up the grid abstraction is to pass the configuration
+values to the <code class="docutils literal notranslate"><span class="pre">Frogger</span></code> class. While not directly aligning with the pygame
+framework provided to you in the starter code, I recommend including the new
+constants we defined with the arguments to the <code class="docutils literal notranslate"><span class="pre">Frogger</span></code> constructor farther
+down in <code class="docutils literal notranslate"><span class="pre">main.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">game</span> <span class="o">=</span> <span class="n">frogger</span><span class="o">.</span><span class="n">Frogger</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">NUM_ROWS</span><span class="p">,</span> <span class="n">NUM_COLS</span><span class="p">,</span> <span class="n">CELL_SIZE</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Frogger</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Establishing a Grid Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="car.html">Car</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dodgeable.html">Dodgeable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dozer.html">Dozer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frog.html">Frog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grass.html">Grass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="immovable.html">Immovable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="locatable.html">Locatable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movable.html">Movable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="player_controllable.html">PlayerControllable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="race_car.html">RaceCar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rideable.html">Rideable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="road.html">Road</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stage.html">Stage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="truck.html">Truck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="turtle.html">Turtle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="water.html">Water</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Frogger Documentation</a></li>
+      <li>Next: <a href="car.html" title="next chapter">Car</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, CS 1410.
+
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+
+      |
+      <a href="_sources/grid.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+
+
+
+  </body>
+</html>

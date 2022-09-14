@@ -1,0 +1,43 @@
+Grass
+-----
+
+A ``Grass`` object represents the spaces in the top row of the window separating
+the ``Home`` spaces. The frog should die when touching a ``Grass`` space.
+
+.. py:class:: Grass(x, y, w, h)
+
+   .. py:attribute:: x
+
+       The position of the grass space in the x dimension; its left edge.
+
+       :type x: int or float
+
+   .. py:attribute:: y
+
+       The position of the grass space in the y dimension; its top edge.
+
+       :type y: int or float
+
+   .. py:attribute:: w
+
+       The width of the grass space.
+
+       :type w: int or float
+
+   .. py:attribute:: h
+
+       The height of the grass space.
+
+       :type h: int or float
+
+    .. py:method:: hits(other)
+
+       Determines if the given object (other) hits or touches the grass space
+       (self), according to both objects' position, width, and height.
+
+       Hint: the other object should be the frog.
+
+       :param other: The other object to be compared with.
+       :type other: ``Locatable``
+       :return: Whether or not the other object touches the current object.
+       :rtype: bool

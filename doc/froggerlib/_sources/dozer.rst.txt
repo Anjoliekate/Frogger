@@ -1,0 +1,10 @@
+Dozer
+-----
+
+``Dozer`` objects have identical interfaces as ``Car`` objects. Therefore, you
+should refer to the ``Car`` class to understand the specification of the
+``Dozer`` class.
+
+.. py:class:: Dozer(x, y, w, h, dx, dy, s)
+
+    See the ``Car`` class documentation for descriptions of the parameters.

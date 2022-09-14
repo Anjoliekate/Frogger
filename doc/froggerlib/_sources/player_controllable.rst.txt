@@ -1,0 +1,88 @@
+PlayerControllable
+-------------------
+
+Defines how players will interact with objects in the game. All classes that
+define objects that are to be controlled by the player should inherit (whether
+directly or indirectly) from the ``PlayerControllable`` class.
+
+You shouldn't directly create an instance of ``PlayerControllable`` but consider
+the descriptions below of the data attributes/members and methods that are
+accessible on any object that inherits from ``PlayerControllable``.
+
+.. py:class:: PlayerControllable
+
+   .. py:attribute:: horizontal_gap
+
+       A value representing how far the controlled object will horizontally move
+       on a single command (i.e., how far the frog will jump when pressing an
+       arrow key).
+
+       :type x: int or float
+
+   .. py:attribute:: vertical_gap
+
+       A value representing how far the controlled object will vertically move
+       on a single command (i.e., how far the frog will jump when pressing an
+       arrow key).
+
+       :type y: int or float
+
+   .. py:method:: getHorizontalGap()
+
+       :return: The horizontal gap value.
+       :rtype: int or float
+
+   .. py:method:: getVerticalGap()
+
+       :return: The vertical gap value.
+       :rtype: int or float
+
+   .. py:method:: setHorizontalGap(hg)
+
+       :param x: The value to set for the horizontal gap of the object.
+       :type x: int or float
+
+   .. py:method:: setVerticalGap(y)
+
+       :param x: The value to set for the vertical gap of the object.
+       :type y: int or float
+
+   .. py:method:: up()
+
+       Command the controlled object to move up in the window. Needs to be
+       paired with a call to ``Movable.move()`` where ``up()`` is called when the
+       player presses the up key, and ``Movable.move()`` is called when the game
+       evolves.
+
+   .. py:method:: down()
+
+       Command the controlled object to move down in the window. Needs to be
+       paired with a call to ``Movable.move()`` where ``down()`` is called when the
+       player presses the down key, and ``Movable.move()`` is called when the game
+       evolves.
+
+   .. py:method:: left()
+
+       Command the controlled object to move left in the window. Needs to be
+       paired with a call to ``Movable.move()`` where ``left()`` is called when the
+       player presses the left key, and ``Movable.move()`` is called when the game
+       evolves.
+
+   .. py:method:: right()
+
+       Command the controlled object to move right in the window. Needs to be
+       paired with a call to ``Movable.move()`` where ``right()`` is called when the
+       player presses the right key, and ``Movable.move()`` is called when the game
+       evolves.
+
+   .. py:method:: outOfBounds(screen_width, screen_height)
+
+        Reports whether or not the object has moved off of the screen. This is
+        determined based on the screen size parameters.
+
+       :param screen_width: The width of the screen/window.
+       :type screen_width: int or float
+       :param screen_height: The height of the screen/window.
+       :type screen_height: int or float
+       :return: Whether or not the object has moved off of the screen.
+       :rtype: bool

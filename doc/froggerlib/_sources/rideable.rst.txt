@@ -1,0 +1,28 @@
+Rideable
+---------
+
+Defines how specific objects carry or support other objects. These so called
+"rideables" are the ``Log`` and ``Turtle`` classes.
+
+You shouldn't directly create an instance of ``Rideable`` but consider the
+description below of the hit method that is accessible on any object that
+inherits from ``Rideable``.
+
+.. py:class:: Rideable
+
+    .. py:method:: supports(other)
+
+       Determines if the given object (other) is riding on the current object
+       (self), according to both objects' position, width, and height.
+
+       If the other object is indeed riding on the current object, the other
+       object will be moved to appear as if it were riding on the current
+       object.
+
+       For example, call this on a ``Log`` object, passing in a ``Frog`` object
+       and the log will carry the frog.
+
+       :param other: The other object to support or carry.
+       :type other: ``Locatable``
+       :return: Whether or not the other object is riding on the current object.
+       :rtype: bool

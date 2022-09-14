@@ -1,0 +1,44 @@
+Water
+-----
+
+A ``Water`` object represents the lanes in the bottom half of the window where
+cars will move. Above the middle stage, there should be at least four water
+lanes in the game window.
+
+.. py:class:: Water(x, y, w, h)
+
+   .. py:attribute:: x
+
+       The position of the water lane in the x dimension; its left edge.
+
+       :type x: int or float
+
+   .. py:attribute:: y
+
+       The position of the water lane in the y dimension; its top edge.
+
+       :type y: int or float
+
+   .. py:attribute:: w
+
+       The width of the water lane.
+
+       :type w: int or float
+
+   .. py:attribute:: h
+
+       The height of the water lane.
+
+       :type h: int or float
+
+    .. py:method:: hits(other)
+
+       Determines if the given object (other) hits or touches the water lane
+       (self), according to both objects' position, width, and height.
+
+       Hint: the other object should be the frog.
+
+       :param other: The other object to be compared with.
+       :type other: ``Locatable``
+       :return: Whether or not the other object touches the current object.
+       :rtype: bool

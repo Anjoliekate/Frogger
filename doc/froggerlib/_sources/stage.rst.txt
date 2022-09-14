@@ -1,0 +1,33 @@
+Stage
+-----
+
+A ``Stage`` object represents the "safe zone" for the frog in the game window. A
+stage should be placed at the bottom of the window where the frog starts the
+game as well as in the middle of the window between the road lanes and the water
+lanes.
+
+.. py:class:: Stage(x,y,w,h)
+
+   .. py:attribute:: x
+
+       The position of the stage in the x dimension; its left edge.
+
+       :type x: int or float
+
+   .. py:attribute:: y
+
+       The position of the stage in the y dimension; its top edge.
+
+       :type y: int or float
+
+   .. py:attribute:: w
+
+       The width of the stage.
+
+       :type w: int or float
+
+   .. py:attribute:: h
+
+       The height of the stage.
+
+       :type h: int or float

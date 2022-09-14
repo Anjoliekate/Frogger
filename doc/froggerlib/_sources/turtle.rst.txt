@@ -1,0 +1,70 @@
+Turtle
+------
+
+A ``Turtle`` object should automatically move horizontally across the window
+Through inheritance, Turtle objects include attributes from the ``Locatable``,
+``Movable``, and ``Rideable`` classes. You should reference the documentation
+pages of these classes when implementing each turtle's behavior in your game.
+
+.. py:class:: Turtle(x, y, w, h, dx, dy, s)
+
+   .. py:attribute:: x
+
+       The starting x value of the position of the turtle. This should be used as
+       its left edge (as defined in pygame).
+
+       You have a few options for where to place a turtle when the game begins.
+       Most find it useful to randomize this position to some value within the
+       width of the window.
+
+       :type x: int or float
+
+   .. py:attribute:: y
+
+       The y value of the position of the turtle. This should be used as its top
+       edge (as defined in pygame).
+
+       To determine the y value of a turtle, think of what road lane you want to
+       place it in and use its value.
+
+       :type y: int or float
+
+   .. py:attribute:: w
+
+       The width of the turtle.
+
+       :type w: int or float
+
+   .. py:attribute:: h
+
+       The height of the turtle.
+
+       :type h: int or float
+
+   .. py:attribute:: dx
+
+       The desired x value of the turtle. It is the point in the x dimension toward
+       which the turtle will automatically move.
+
+       Ideally, this should be set to some value off of the screen so that it
+       appears to continue driving. We will reset the turtle's position once it is
+       off of the screen but we don't want the user to notice that we reset it.
+
+       :type dx: int or float
+
+   .. py:attribute:: dy
+
+       The desired y value of the turtle. It is the point in the y dimension toward
+       which the turtle will automatically move.
+
+       Since the turtle should only move horizontally, we do not want its y value
+       to change. To ensure this, we recommend you set the desired y using the
+       starting y value described above.
+
+       :type dy: int or float
+
+   .. py:attribute:: s
+
+       The speed of the turtle.
+
+       :type s: int or float

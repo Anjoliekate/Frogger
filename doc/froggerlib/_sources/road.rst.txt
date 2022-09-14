@@ -1,0 +1,32 @@
+Road
+-----
+
+A ``Road`` object represents the lanes in the bottom half of the window where
+cars will move. After the bottom stage, there should be at least four road lanes
+in the game window.
+
+.. py:class:: Road(x,y,w,h)
+
+   .. py:attribute:: x
+
+       The position of the road in the x dimension; its left edge.
+
+       :type x: int or float
+
+   .. py:attribute:: y
+
+       The position of the road in the y dimension; its top edge.
+
+       :type y: int or float
+
+   .. py:attribute:: w
+
+       The width of the road.
+
+       :type w: int or float
+
+   .. py:attribute:: h
+
+       The height of the road.
+
+       :type h: int or float

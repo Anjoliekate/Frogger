@@ -1,0 +1,43 @@
+Home
+-----
+
+A ``Home`` object represents the spaces in the top row of the window separating
+the ``Grass`` spaces. The player wins when the frog reaches a ``Home`` space.
+
+.. py:class:: Home(x, y, w, h)
+
+   .. py:attribute:: x
+
+       The position of the home space in the x dimension; its left edge.
+
+       :type x: int or float
+
+   .. py:attribute:: y
+
+       The position of the home space in the y dimension; its top edge.
+
+       :type y: int or float
+
+   .. py:attribute:: w
+
+       The width of the home space.
+
+       :type w: int or float
+
+   .. py:attribute:: h
+
+       The height of the home space.
+
+       :type h: int or float
+
+    .. py:method:: hits(other)
+
+       Determines if the given object (other) hits or touches the home space
+       (self), according to both objects' position, width, and height.
+
+       Hint: the other object should be the frog.
+
+       :param other: The other object to be compared with.
+       :type other: ``Locatable``
+       :return: Whether or not the other object touches the current object.
+       :rtype: bool

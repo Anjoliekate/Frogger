@@ -1,0 +1,81 @@
+Establishing a Grid Abstraction
+-------------------------------
+
+Pygame draws shapes in terms of low-level pixel values, a level of complexity
+that is not ideal for human programmers. For example, we might draw a rectangle
+like this:
+
+.. code-block:: python
+
+    r = pygame.Rect(150, 200, 50, 50)
+    pygame.draw.rect(surface, (0, 255, 0), r)
+
+which would look like this:
+
+.. image:: _static/grid1.png
+   :align: center
+
+Instead of thinking about how many hundreds of pixels we need in order to draw
+the rectangle right where we want it, a simpler approach would be to think in
+terms of rows and columns:
+
+.. code-block:: python
+
+    row = 4
+    col = 3
+    cell_size = 50
+    r = pygame.Rect(col*cell_size, row*cell_size, cell_size, cell_size)
+    pygame.draw.rect(surface, (0, 255, 0), r)
+
+The above example draws the same rectangle as before (grid lines added for
+reference):
+
+.. image:: _static/grid2.png
+   :align: center
+
+While requiring a few more keystrokes, the later approach is much simpler;
+something to the effect of "Draw a rectangle that is one column wide and one
+column tall and position it in row 4 column 3." (Note that the row and column
+numbers are zero-based.) Compare this to "Draw a rectangle that is 50 pixels
+wide and 50 pixels tall at position (150, 200)."
+
+While this is a trivial example, consider how the complexity of not using a grid
+abstraction grows when adding functionality such as moving the shapes or
+precisely drawing other neighboring shapes.
+
+--------------------------------
+Configuring the Grid Abstraction
+--------------------------------
+
+In ``main.py``, we define constants for the size of the window in terms of pixels:
+
+.. code-block:: python
+
+    WINDOW_WIDTH  = 700
+    WINDOW_HEIGHT = 600
+
+This is where we should configure our grid, designing for rows and columns
+rather than raw pixel values. The example below defines a window consisting of
+11 rows and 15 columns where each cell is 50x50 pixels in size:
+
+.. code-block:: python
+
+    NUM_ROWS = 11
+    NUM_COLS = 15
+    CELL_SIZE = 50
+    WINDOW_WIDTH  = NUM_COLS * CELL_SIZE
+    WINDOW_HEIGHT = NUM_ROWS * CELL_SIZE
+
+You should adapt these values for a window that suits your preferences. You also
+might need to scale the window depending on the resolution and size of your
+computer's screen. This can be done by adjusting the ``CELL_SIZE`` variable.
+
+The last step in setting up the grid abstraction is to pass the configuration
+values to the ``Frogger`` class. While not directly aligning with the pygame
+framework provided to you in the starter code, I recommend including the new
+constants we defined with the arguments to the ``Frogger`` constructor farther
+down in ``main.py``:
+
+.. code-block:: python
+
+    self.game = frogger.Frogger(width, height, NUM_ROWS, NUM_COLS, CELL_SIZE)

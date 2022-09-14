@@ -1,0 +1,23 @@
+Dodgeable
+---------
+
+Defines how specific objects collide with other objects. These so called
+"dodgeables" are the ``RaceCar``, ``Dozer``, ``Truck``, and ``Car`` classes.
+
+You shouldn't directly create an instance of ``Dodgeable`` but consider the
+description below of the hit method that is accessible on any object that
+inherits from ``Dodgeable``.
+
+.. py:class:: Dodgeable
+
+    .. py:method:: hits(other)
+
+       Determines if the given object (other) hits or touches the current object
+       (self), according to both objects' position, width, and height.
+
+       Hint: the other object should be the frog.
+
+       :param other: The other object to be compared with.
+       :type other: ``Locatable``
+       :return: Whether or not the other object touches the current object.
+       :rtype: bool

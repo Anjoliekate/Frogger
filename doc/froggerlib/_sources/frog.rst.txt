@@ -1,0 +1,74 @@
+Frog
+----
+
+A ``Frog`` object is controlled by the player to move throughout the game.
+Through inheritance, Frog objects include attributes from the ``Locatable``,
+``Movable``, and ``PlayerControllable`` classes. You should reference the
+documentation pages of these classes when implementing the frog's behavior in
+your game.
+
+.. py:class:: Frog(x,y,w,h,dx,dy,s,hg,vg)
+
+   .. py:attribute:: x
+
+       The x value of the position of the frog. This should be used as its left
+       edge (as defined in pygame).
+
+       :type x: int or float
+
+   .. py:attribute:: y
+
+       The y value of the position of the frog. This should be used as its top
+       edge (as defined in pygame).
+
+       :type y: int or float
+
+   .. py:attribute:: w
+
+       The width of the frog.
+
+       :type w: int or float
+
+   .. py:attribute:: h
+
+       The height of the frog.
+
+       :type h: int or float
+
+   .. py:attribute:: dx
+
+       The desired x value of the frog. The point in the x dimension toward
+       which the frog will automatically move.
+
+       Set this to the frog's x value since the frog should not move automatically.
+
+       :type dx: int or float
+
+   .. py:attribute:: dy
+
+       The desired y value of the frog. The point in the y dimension toward
+       which the frog will automatically move.
+
+       Set this to the frog's y value since the frog should not move automatically.
+
+       :type dy: int or float
+
+   .. py:attribute:: s
+
+       The speed of the frog.
+
+       :type s: int or float
+
+   .. py:attribute:: hg
+
+       The horizontal gap of the frog, representing how far the frog will jump
+       in the horizontal plane when pressing the left or right arrow keys.
+
+       :type hg: int or float
+
+   .. py:attribute:: vg
+
+       The vertical gap of the frog, representing how far the frog will jump
+       in the vertical plane when pressing the up or down arrow keys.
+
+       :type vg: int or float

@@ -1,0 +1,142 @@
+<html><head></head><body><h1>CS 1410: Frogger</h1>
+
+<p>The arcade game <a href="https://en.wikipedia.org/wiki/Frogger">Frogger</a> is a classic
+game from the 1980s.  In this game, the player controls a frog,
+which can hop around the screen.  The frog is attempting to return
+to his home at the top of the screen.  The frog must cross
+lanes of moving vehicles and water in order to safely reach its
+home.  If it is run over by a car, or sinks in the water, it dies.</p>
+
+<h2>Assignment</h2>
+
+<p>In this assignment, you will build a version of the Frogger game
+with the most basic features, using the library of classes
+in <code>froggerlib</code>.  You will create a class to represent the game,
+create instances of frogs, cars, logs, etc.</p>
+
+<p><strong>You will find the <code>froggerlib</code> documentation for creating this objects in the
+Frogger codegrinder directory in <code>doc/froggerlib/index.html</code>. You may also use
+the online version at <a href="https://cit.dixie.edu/cs/1410/labs/frogger_docs/index.html">https://cit.dixie.edu/cs/1410/labs/frogger_docs/index.html</a></strong></p>
+
+<p>Your program must have at least the following features:</p>
+
+<ul>
+<li>Must be a <em>stage</em> lane where the frog spawns, and another between the traffic and floating objects.</li>
+<li>Frog must be able to cross at least 4 lanes of traffic.</li>
+<li>At least 2 lanes must travel left, and at least 2 lanes must travel right.</li>
+<li>Frog must die and game over if frog touches a vehicle.</li>
+<li>Frog must be able to cross at least 4 lanes of floating objects.</li>
+<li>At least 2 lanes must travel left, and at least 2 lanes must travel right.</li>
+<li>Frog must die and game over if frog is completely surrounded by water.</li>
+<li>Frog must die and game over if frog touches the side walls.</li>
+<li>Must be a lane of at least 3 frog homes.</li>
+<li>Frog must die and game over if frog touches the grass next to home.</li>
+<li>Frog must win and game over if frog completely surrounded by home.</li>
+<li>Not all vehicle or floating lanes can have the same kind of vehicle or floating object.</li>
+<li>A variety of speeds must be used.</li>
+</ul>
+
+<h2>Code Requirements</h2>
+
+<p>Your software implementation must meet these programming
+requirements:</p>
+
+<ul>
+<li>The <code>froggerlib</code> code must not be changed.</li>
+<li>The <code>pygame</code> framework we&#39;ve used in other assignments
+must be used.</li>
+<li>You must have a class to represent the game (<code>frogger.py</code>), and store
+instances of the objects that make the game.</li>
+<li>Your <code>Frogger</code> class must contain the following (split into parts):</li>
+</ul>
+
+<h3>Milestones</h3>
+
+<p><strong>Part1</strong></p>
+
+<ul>
+<li>Frog controlled by user, moves</li>
+<li>Frog dies if goes off screen</li>
+<li>Both stages drawn</li>
+<li>All traffic lanes drawn</li>
+<li>All traffic lanes populated <code>Dodgeable</code> objects</li>
+<li>Vehicles come back on other side of lane when they go off screen</li>
+<li>Frog dies if touches any <code>Dodgeable</code> object</li>
+</ul>
+
+<p><strong>Part2</strong></p>
+
+<ul>
+<li>All water lanes drawn</li>
+<li>All water lanes populated <code>Rideable</code> objects</li>
+<li><code>Rideable</code> come back on other side of lane when they go off screen</li>
+<li>Frog dies if completely surrounded by water</li>
+<li>Frog rides <code>Rideable</code> objects, if touching them</li>
+<li>All grass and home objects present</li>
+<li>Frog dies if touches grass object</li>
+<li>Frog wins if completely surrounded by home object</li>
+</ul>
+
+<h2>Extra Challenges</h2>
+
+<ul>
+<li>Restart option.</li>
+<li>Timer to limit game time.</li>
+<li>Allow frog to complete level by filling all homes.</li>
+<li>Additional levels of increasing difficulty.</li>
+</ul>
+
+<h2>Hints</h2>
+
+<p>Implement your code in small steps.  Make sure each step is working
+before moving to the next step.  For example, this might be
+a series of steps you could do to get started:</p>
+
+<ul>
+<li>Get a blank starter kit, maybe by removing code from a previous assignment.</li>
+<li>Unpack <code>froggerlib</code> into the folder with your code.  <code>froggerlib</code> should be folder inside of your folder.</li>
+<li>Create a <code>frog</code> object and store it in your game class as a data member.</li>
+<li>Draw the frog every frame.</li>
+<li>Allow the user to cause the frog to move.</li>
+<li>If the frog leaves to window, cause the game to end.</li>
+<li>Build and draw the two stages.</li>
+<li>Build and draw the roads.</li>
+<li>Build one car in one lane.</li>
+<li>Make the car draw and move.</li>
+<li>When the car crosses the screen, move it back to the other side.</li>
+<li>When the frog hits the car, cause the game to end.</li>
+<li>Add more cars to the lane.</li>
+<li>Add more lanes of cars.</li>
+<li>...</li>
+</ul>
+
+<h2><code>froggerlib</code> Notes</h2>
+
+<ul>
+<li>The library uses inheritance and polymorphism abundantly.</li>
+<li>The <code>hits()</code> method for <code>Water</code> is <code>True</code> if the frog is completely surrounded by water, and not riding anything.</li>
+<li>The <code>hits()</code> method for <code>Grass</code> is <code>True</code> if the frog is touched by grass, and not riding anything.</li>
+<li>The <code>hits()</code> method for <code>Home</code> is <code>True</code> if the frog is completely surrounded by home, and not riding anything.</li>
+<li>The <code>hits()</code> method for <code>Dodgeable</code> objects is <code>True</code> if the frog is touched by the object.</li>
+<li>The <code>hits()</code> method for all others objects is <code>False</code>.</li>
+<li>If the frog <code>hits()</code> a <code>Water</code>, <code>Grass</code>, or <code>Dodgeable</code>, the game is over, the player loses.</li>
+<li>If the frog <code>hits()</code> a <code>Home</code>, the game is over, the player wins.</li>
+<li>Movement is handled the <code>Movable</code> class.  An object has a current position <code>x</code>:<code>y</code>, a desired position <code>desired_x</code>:<code>desired_y</code> and a <code>speed</code>.
+Every time that <code>move()</code> is called on a <code>Movable</code> object, if the desired position isn&#39;t the same as the current position, the object will move
+up to <code>speed</code> pixels towards the desired position.</li>
+<li>Calling and of the <code>up()</code>, <code>down()</code>, <code>left()</code>, <code>right()</code> methods on a <code>PlayerControllable</code>, like a <code>Frog</code>, does not actually move the object.
+It sets the desired position correctly to cause the object to move towards the desired position when <code>move()</code> is called.</li>
+<li><code>outOfBounds()</code> is useful to check if the frog has left the screen.  If the frog leaves the screen, the game is over and the player loses.</li>
+<li>Horizontal and vertical gaps define the size of jump the frog will take.  They should be set to the size of the lanes.</li>
+<li>The size of objects like <code>Frog</code>s, <code>Car</code>s, etc, should be smaller than the lanes, so that objects don&#39;t <code>hit()</code> when they are in neighboring lanes.</li>
+</ul>
+
+<h2>Links</h2>
+
+<ul>
+<li><a href="http://www.classicgaming.cc/classics/frogger/about">Read About frogger</a></li>
+<li><a href="http://www.frogger.net/">Play Frogger</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Frogger">Wikipedia on Frogger</a></li>
+<li><a href="http://www.classicgamesarcade.com/game/21607/frogger.html">Play Frogger</a></li>
+</ul>
+</body></html>

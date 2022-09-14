@@ -1,0 +1,69 @@
+.. Frogger documentation master file, created by
+   sphinx-quickstart on Tue Mar 29 07:08:27 2022.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Frogger Documentation
+=====================
+
+FroggerLib Objects
+------------------
+
+We provide a selection of class definitions for you to use in implementing your
+game. They are structured into a single package called ``froggerlib`` that you
+can import like this:
+
+``import froggerlib``
+
+Use this package as a namespace to any of the classes that you use when building
+your game. For example, you may access the ``Frog`` class like this (arguments
+omitted):
+
+``froggerlib.Frog(...)``
+
+Below is a list of documentation for some of the ``froggerlib`` classes along
+with some other useful hints that you may reference.
+
+.. toctree::
+   :maxdepth: 1
+
+   grid
+   alligator
+   car
+   dodgeable
+   dozer
+   frog
+   grass
+   home
+   immovable
+   locatable
+   log
+   movable
+   player_controllable
+   race_car
+   rideable
+   road
+   stage
+   touchable
+   truck
+   turtle
+   untouchable
+   water
+
+Class Hierarchy
+---------------
+
+Below is the design document outlining the class hierarchy or inheritance tree
+of the ``froggerlib`` package. Refer to this diagram to understand the
+capabilities of the objects in your game.
+
+.. raw:: html
+
+   <embed src="_static/hierarchy.pdf" width="800" height="650" type="application/pdf" />
+
+Indices and tables
+------------------
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

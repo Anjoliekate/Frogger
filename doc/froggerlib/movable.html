@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Movable &#8212; Frogger  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="PlayerControllable" href="player_controllable.html" />
+    <link rel="prev" title="Log" href="log.html" />
+
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+
+  <section id="movable">
+<h1>Movable<a class="headerlink" href="#movable" title="Permalink to this headline">¶</a></h1>
+<p>Defines how objects move in the game. All classes that rely on movement inherit
+(whether directly or indirectly) from the <code class="docutils literal notranslate"><span class="pre">Movable</span></code> class which provides
+basic movement primitives.</p>
+<p>You shouldn’t directly create an instance of <code class="docutils literal notranslate"><span class="pre">Movable</span></code> but consider the
+descriptions below of the data attributes/members and methods that are
+accessible on any object that inherits from <code class="docutils literal notranslate"><span class="pre">Movable</span></code>.</p>
+<dl class="py class">
+<dt id="Movable">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Movable</span></code><a class="headerlink" href="#Movable" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="Movable.desired_x">
+<code class="sig-name descname"><span class="pre">desired_x</span></code><a class="headerlink" href="#Movable.desired_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>A value in the x dimension toward which the object will move.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="Movable.desired_y">
+<code class="sig-name descname"><span class="pre">desired_y</span></code><a class="headerlink" href="#Movable.desired_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>A value in the y dimension toward which the object will move.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="Movable.speed">
+<code class="sig-name descname"><span class="pre">speed</span></code><a class="headerlink" href="#Movable.speed" title="Permalink to this definition">¶</a></dt>
+<dd><p>How quickly the object will move.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="Movable.ride">
+<code class="sig-name descname"><span class="pre">ride</span></code><a class="headerlink" href="#Movable.ride" title="Permalink to this definition">¶</a></dt>
+<dd><p>Another object on which the current object is riding.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Movable.getDesiredX">
+<code class="sig-name descname"><span class="pre">getDesiredX</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Movable.getDesiredX" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The desired_x value.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int or float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Movable.getDesiredY">
+<code class="sig-name descname"><span class="pre">getDesiredY</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Movable.getDesiredY" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The desired_y value.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int or float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Movable.getSpeed">
+<code class="sig-name descname"><span class="pre">getSpeed</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Movable.getSpeed" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The speed value.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int or float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Movable.getRide">
+<code class="sig-name descname"><span class="pre">getRide</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Movable.getRide" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The ride value.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int or float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Movable.setDesiredX">
+<code class="sig-name descname"><span class="pre">setDesiredX</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Movable.setDesiredX" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>int</em><em> or </em><em>float</em>) – The x value to set for the directed movement of the object in
+the x dimension.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Movable.setDesiredY">
+<code class="sig-name descname"><span class="pre">setDesiredY</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Movable.setDesiredY" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>y</strong> (<em>int</em><em> or </em><em>float</em>) – The y value to set for the directed movement of the object in
+the y dimension.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Movable.setSpeed">
+<code class="sig-name descname"><span class="pre">setSpeed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Movable.setSpeed" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>speed</strong> (<em>int</em><em> or </em><em>float</em>) – The new value to set for the speed of the object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Movable.setRide">
+<code class="sig-name descname"><span class="pre">setRide</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rideable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Movable.setRide" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>rideable</strong> (<cite>Rideable</cite>) – Another object on which the current object should ride.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Movable.atDesiredLocation">
+<code class="sig-name descname"><span class="pre">atDesiredLocation</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Movable.atDesiredLocation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reports whether or not the object is at its desired location.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Whether or not the object is at its desired location.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Movable.outOfBounds">
+<code class="sig-name descname"><span class="pre">outOfBounds</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen_width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen_height</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Movable.outOfBounds" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Reports whether or not the object has moved off of the screen. This is
+determined based on the screen size parameters.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>screen_width</strong> (<em>int</em><em> or </em><em>float</em>) – The width of the screen/window.</p></li>
+<li><p><strong>screen_height</strong> (<em>int</em><em> or </em><em>float</em>) – The height of the screen/window.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Whether or not the object has moved off of the screen.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Movable.riding">
+<code class="sig-name descname"><span class="pre">riding</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Movable.riding" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Reports whether or not the object is riding on another object.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Whether or not the object is riding on another object.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Frogger</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="grid.html">Establishing a Grid Abstraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="car.html">Car</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dodgeable.html">Dodgeable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dozer.html">Dozer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frog.html">Frog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grass.html">Grass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="immovable.html">Immovable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="locatable.html">Locatable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">Log</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Movable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="player_controllable.html">PlayerControllable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="race_car.html">RaceCar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rideable.html">Rideable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="road.html">Road</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stage.html">Stage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="truck.html">Truck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="turtle.html">Turtle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="water.html">Water</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="log.html" title="previous chapter">Log</a></li>
+      <li>Next: <a href="player_controllable.html" title="next chapter">PlayerControllable</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, CS 1410.
+
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+
+      |
+      <a href="_sources/movable.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+
+
+
+  </body>
+</html>

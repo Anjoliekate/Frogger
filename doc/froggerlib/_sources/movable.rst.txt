@@ -1,0 +1,104 @@
+Movable
+---------
+
+Defines how objects move in the game. All classes that rely on movement inherit
+(whether directly or indirectly) from the ``Movable`` class which provides
+basic movement primitives.
+
+You shouldn't directly create an instance of ``Movable`` but consider the
+descriptions below of the data attributes/members and methods that are
+accessible on any object that inherits from ``Movable``.
+
+.. py:class:: Movable
+
+   .. py:attribute:: desired_x
+
+       A value in the x dimension toward which the object will move.
+
+       :type x: int or float
+
+   .. py:attribute:: desired_y
+
+       A value in the y dimension toward which the object will move.
+
+       :type y: int or float
+
+   .. py:attribute:: speed
+
+       How quickly the object will move.
+
+       :type width: int or float
+
+   .. py:attribute:: ride
+
+       Another object on which the current object is riding.
+
+       :type height: int or float
+
+   .. py:method:: getDesiredX()
+
+       :return: The desired_x value.
+       :rtype: int or float
+
+   .. py:method:: getDesiredY()
+
+       :return: The desired_y value.
+       :rtype: int or float
+
+   .. py:method:: getSpeed()
+
+       :return: The speed value.
+       :rtype: int or float
+
+   .. py:method:: getRide()
+
+       :return: The ride value.
+       :rtype: int or float
+
+   .. py:method:: setDesiredX(x)
+
+       :param x: The x value to set for the directed movement of the object in
+            the x dimension.
+       :type x: int or float
+
+   .. py:method:: setDesiredY(y)
+
+       :param y: The y value to set for the directed movement of the object in
+            the y dimension.
+       :type y: int or float
+
+   .. py:method:: setSpeed(speed)
+
+       :param speed: The new value to set for the speed of the object.
+       :type speed: int or float
+
+   .. py:method:: setRide(rideable)
+
+       :param rideable: Another object on which the current object should ride.
+       :type rideable: `Rideable`
+
+   .. py:method:: atDesiredLocation()
+
+       Reports whether or not the object is at its desired location.
+
+       :return: Whether or not the object is at its desired location.
+       :rtype: bool
+
+   .. py:method:: outOfBounds(screen_width, screen_height)
+
+        Reports whether or not the object has moved off of the screen. This is
+        determined based on the screen size parameters.
+
+       :param screen_width: The width of the screen/window.
+       :type screen_width: int or float
+       :param screen_height: The height of the screen/window.
+       :type screen_height: int or float
+       :return: Whether or not the object has moved off of the screen.
+       :rtype: bool
+
+   .. py:method:: riding()
+
+        Reports whether or not the object is riding on another object.
+
+       :return: Whether or not the object is riding on another object.
+       :rtype: bool

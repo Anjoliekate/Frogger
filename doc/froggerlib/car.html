@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Car &#8212; Frogger  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Dodgeable" href="dodgeable.html" />
+    <link rel="prev" title="Establishing a Grid Abstraction" href="grid.html" />
+
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+
+  <section id="car">
+<h1>Car<a class="headerlink" href="#car" title="Permalink to this headline">¶</a></h1>
+<p>A <code class="docutils literal notranslate"><span class="pre">Car</span></code> object should automatically move horizontally across the window
+Through inheritance, Car objects include attributes from the <code class="docutils literal notranslate"><span class="pre">Locatable</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Movable</span></code>, and <code class="docutils literal notranslate"><span class="pre">Dodgeable</span></code> classes. You should reference the documentation
+pages of these classes when implementing each car’s behavior in your game.</p>
+<dl class="py class">
+<dt id="Car">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Car</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Car" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="Car.x">
+<code class="sig-name descname"><span class="pre">x</span></code><a class="headerlink" href="#Car.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>The starting x value of the position of the car. This should be used as
+its left edge (as defined in pygame).</p>
+<p>You have a few options for where to place a car when the game begins.
+Most find it useful to randomize this position to some value within the
+width of the window.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="Car.y">
+<code class="sig-name descname"><span class="pre">y</span></code><a class="headerlink" href="#Car.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>The y value of the position of the car. This should be used as its top
+edge (as defined in pygame).</p>
+<p>To determine the y value of a car, think of what road lane you want to
+place it in and use its value.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="Car.w">
+<code class="sig-name descname"><span class="pre">w</span></code><a class="headerlink" href="#Car.w" title="Permalink to this definition">¶</a></dt>
+<dd><p>The width of the car.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="Car.h">
+<code class="sig-name descname"><span class="pre">h</span></code><a class="headerlink" href="#Car.h" title="Permalink to this definition">¶</a></dt>
+<dd><p>The height of the car.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="Car.dx">
+<code class="sig-name descname"><span class="pre">dx</span></code><a class="headerlink" href="#Car.dx" title="Permalink to this definition">¶</a></dt>
+<dd><p>The desired x value of the car. It is the point in the x dimension toward
+which the car will automatically move.</p>
+<p>Ideally, this should be set to some value off of the screen so that it
+appears to continue driving. We will reset the car’s position once it is
+off of the screen but we don’t want the user to notice that we reset it.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="Car.dy">
+<code class="sig-name descname"><span class="pre">dy</span></code><a class="headerlink" href="#Car.dy" title="Permalink to this definition">¶</a></dt>
+<dd><p>The desired y value of the car. It is the point in the y dimension toward
+which the car will automatically move.</p>
+<p>Since the car should only move horizontally, we do not want its y value
+to change. To ensure this, we recommend you set the desired y using the
+starting y value described above.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="Car.s">
+<code class="sig-name descname"><span class="pre">s</span></code><a class="headerlink" href="#Car.s" title="Permalink to this definition">¶</a></dt>
+<dd><p>The speed of the car.</p>
+<dl class="field-list simple">
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Frogger</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="grid.html">Establishing a Grid Abstraction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Car</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dodgeable.html">Dodgeable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dozer.html">Dozer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frog.html">Frog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grass.html">Grass</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="immovable.html">Immovable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="locatable.html">Locatable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log.html">Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="movable.html">Movable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="player_controllable.html">PlayerControllable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="race_car.html">RaceCar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rideable.html">Rideable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="road.html">Road</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stage.html">Stage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="truck.html">Truck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="turtle.html">Turtle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="water.html">Water</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="grid.html" title="previous chapter">Establishing a Grid Abstraction</a></li>
+      <li>Next: <a href="dodgeable.html" title="next chapter">Dodgeable</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, CS 1410.
+
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+
+      |
+      <a href="_sources/car.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+
+
+
+  </body>
+</html>
